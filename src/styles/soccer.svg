@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="779.53" height="496.06" stroke="#fff" viewBox="0 0 1150 720" xmlns="http://www.w3.org/2000/svg">
+ <path d="m0 0h1150v720h-1150z" fill="#008000"/>
+ <path d="m575 20h-525v680h1050v-680h-525v680z" fill="#008000" stroke="#fff" stroke-width="2"/>
+ <path d="m666.5 360a91.5 91.5 0 1 0 -183 0 91.5 91.5 0 1 0 183 0" fill="none" stroke="#fff" stroke-width="2"/>
+ <path d="m577 360a2 2 0 1 0 -4 0 2 2 0 1 0 4 0" fill="#fff" stroke="#fff"/>
+ <path d="m162 360a2 2 0 1 0 -4 0 2 2 0 1 0 4 0" fill="#fff" stroke="#fff"/>
+ <path d="m992 360a2 2 0 1 0 -4 0 2 2 0 1 0 4 0" fill="#fff" stroke="#fff"/>
+ <path d="m50 324.4h-10v72.2h10z" fill="none" stroke="#fff" stroke-width="2"/>
+ <path d="m1100 324.4h10v72.2h-10z" fill="none" stroke="#fff" stroke-width="2"/>
+ <path d="m50 269.4h55v182.2h-55z" fill="none" stroke="#fff" stroke-width="2"/>
+ <path d="m1100 269.4h-55v182.2h55z" fill="none" stroke="#fff" stroke-width="2"/>
+ <path d="m50 159.4h165v402.2h-165z" fill="none" stroke="#fff" stroke-width="2"/>
+ <path d="m1100 159.4h-165v402.2h165z" fill="none" stroke="#fff" stroke-width="2"/>
+ <path d="m215 286.88a91.5 91.5 0 0 1 0 146.25z" fill="#008000" stroke="#fff" stroke-width="2"/>
+ <path d="m935 286.88a91.5 91.5 0 0 0 0 146.25z" fill="#008000" stroke="#fff" stroke-width="2"/>
+ <path d="m50,30a10,10 0 0,0 10-10h-10z" fill="none" stroke="#fff" stroke-width="2"/>
+ <path d="m60,700a10,10 0 0,0 -10-10v10z" fill="none" stroke="#fff" stroke-width="2"/>
+ <path d="m1100 690a10 10 0 0 0 -10 10h10z" fill="none" stroke="#fff" stroke-width="2"/>
+ <path d="m1090 20a10 10 0 0 0 10 10v-10z" fill="none" stroke="#fff" stroke-width="2"/>
+</svg>
