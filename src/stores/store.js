@@ -7,17 +7,24 @@ const devtools = (process.browser && window.__REDUX_DEVTOOLS_EXTENSION__)
     : f => f;
 
 const initialState = {
-    joueurs: [{
-        id: 1,
-        nombre: "Khalid Ouazari",
-        foto: "https://media.licdn.com/dms/image/C4D03AQEu8i4sslSlEA/profile-displayphoto-shrink_200_200/0?e=1575504000&v=beta&t=j1oa4-5Q0f4b3HHkL4T7Cz400m38oK8m9gQwg-yTHaU"
-    },
+    joueurs: [
+        {
+            id: 1,
+            nombre: "Khalid Ouazari",
+            foto: "https://media.licdn.com/dms/image/C4D03AQEu8i4sslSlEA/profile-displayphoto-shrink_200_200/0?e=1575504000&v=beta&t=j1oa4-5Q0f4b3HHkL4T7Cz400m38oK8m9gQwg-yTHaU"
+        },
         {
             id: 2,
             nombre: "Juan carlitos",
             foto: "https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_960_720.png"
 
-        }],
+        },
+        {
+            id: 3,
+            nombre: "Khalid Easy",
+            foto: "http://www.web-soluces.net/webmaster/avatar/GetAvataaarsCom-Femme.png"
+        },
+        ],
     titulaires: [],
     suplentes: []
 }

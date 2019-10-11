@@ -11,10 +11,11 @@ class Jugadores extends React.Component  {
             <section>
                 <h2>Joueurs</h2>
                 {console.log('thisprops->Jugadores ',this.props)}
-                <div className="contenedor-jugadores">
+                <div style={{    flexDirection: 'row', display: 'flex'}}
+                     className="contenedor-jugadores">
                     {
                         this.props.joueurs.map(j => (
-                            <article key={j.id} className="jugador">
+                            <article style={{padding:10}} key={j.id} className="jugador">
                                 <img  style={{height:100,width:100}} src={j.foto} alt={j.nombre}/>
                                 <h3>{j.nombre}</h3>
                                 <div>
