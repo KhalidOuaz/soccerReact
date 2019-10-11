@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {AJOUTER_SUPLENT, AJOUTER_TITULAIR} from "../stores/actions";
+import AddJugadores from "./AddJugadores";
 
 class Jugadores extends React.Component  {
     constructor(props){
@@ -9,6 +10,7 @@ class Jugadores extends React.Component  {
     render() {
         return(
             <section>
+                <AddJugadores/>
                 <h2>Joueurs</h2>
                 {console.log('thisprops->Jugadores ',this.props)}
                 <div style={{    flexDirection: 'row', display: 'flex'}}

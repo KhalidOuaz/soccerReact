@@ -4,6 +4,7 @@ import Suplentes from "./Suplentes";
 
 const EquipoSeleccionado = () => (
     <section>
+
         <Titulares />
         <Suplentes />
     </section>

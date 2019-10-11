@@ -2,8 +2,12 @@ import React from 'react';
 import {connect} from "react-redux";
 import {SUPRIMER_TITULAIR} from "../stores/actions";
 import soccer from '../styles/soccer.svg';
-
+import Box from '@material-ui/core/Box';
 import Draggable from 'react-draggable'; // The default
+import Avatar from '@material-ui/core/Avatar';
+import Badge from '@material-ui/core/Badge';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+
 
 class Titulares extends React.Component  {
     constructor(props){
@@ -49,17 +53,28 @@ class Titulares extends React.Component  {
                                      key={j.id}
                                      className="titulaires">
                                 <Draggable onDrag={this.handleDrag} {...dragHandlers}>
-                                    <div style={{color:'white'}} className="box">
-                                        <img  style={{height:100,width:100}} src={j.foto} alt={j.nombre}/>
-                                        <button onClick={()=>{this.props.removeTitulair(j)}}>X</button>
-                                        <p>{j.nombre}</p>
-                                    </div>
+                                    <Box style={{justifyContent: 'center',
+                                        alignItems: 'center',
+                                        display: 'flex',
+                                        flexDirection: 'column'}} m={1}>
+                                        <p style={{margin:0}}>{j.nombre}</p>
+                                        <Badge
+                                            overlap="circle"
+                                            anchorOrigin={{vertical: 'bottom', horizontal: 'right',}}
+                                            badgeContent={
+                                                <HighlightOffIcon
+                                                    onClick={()=>{this.props.removeTitulair(j)}}
+                                                    style={{color:'red'}}
+                                                />
+                                            }>
+                                            <Avatar src={j.foto} alt={j.nombre} />
+                                        </Badge>
+                                    </Box>
                                 </Draggable>
                             </article>
                         ))
                     }
                 </div>
-
             </section>
         )
     }
