@@ -1,5 +1,5 @@
 import React from 'react';
-import Jugadores from "./Components/Jugadores";
+import Jugadores from "./Components/Joueurs";
 import EquipoSeleccionado from "./Components/EquipoSeleccionado";
 
 

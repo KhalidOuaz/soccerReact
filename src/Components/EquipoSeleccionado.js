@@ -1,12 +1,11 @@
 import React from 'react';
 import Titulares from "./Titulares";
-import Suplentes from "./Suplentes";
+import Remplacant from "./Remplacant";
 
 const EquipoSeleccionado = () => (
     <section>
-
         <Titulares />
-        <Suplentes />
+        <Remplacant />
     </section>
 );
 

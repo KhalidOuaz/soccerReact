@@ -14,23 +14,36 @@ class Titulares extends React.Component  {
         super(props)
         this.state = {
             activeDrags: 0,
-            deltaPosition: {
-                x: 0, y: 0
-            },
+            deltaPosition: {},
         };
     }
 
-    handleDrag = (e, ui) => {
-        const {x, y} = this.state.deltaPosition;
-        this.setState({
+    handleDrag = (e, ui,id) => {
+        const keyX = 'x'+id;
+        const keyY = 'y'+id;
+        if(!this.state.deltaPosition[keyX]){
+            this.setState(previousState => ({
+                deltaPosition: {
+                    ...previousState.deltaPosition,
+                    [keyX]:0,
+                    [keyY]:0
+                }
+            }));
+        }
+        this.setState(previousState => ({
             deltaPosition: {
-                x: x + ui.deltaX,
-                y: y + ui.deltaY,
+                ...previousState.deltaPosition,
+                [keyX]: this.state.deltaPosition[keyX] + ui.deltaX,
+                [keyY]: this.state.deltaPosition[keyY] + ui.deltaY,
             }
-        });
+        }));
     };
+    componentDidUpdate(){
+        console.log('state',this.state)
+    }
 
     onStart = () => {
+
         this.setState({activeDrags: ++this.state.activeDrags});
     };
 
@@ -40,30 +53,39 @@ class Titulares extends React.Component  {
 
 
     render() {
-        const dragHandlers = {onStart: this.onStart, onStop: this.onStop};
         return(
             <section>
                 <h2>Titulaires</h2>
-                <img src={soccer} alt={"Soccer"}/>
-                <div  style={{    flexDirection: 'row', display: 'flex'}}
+                <img style={{width:'100%'}} src={soccer} alt={"Soccer"}/>
+
+                <div style={{display:'flex'}}
                       className="cancha">
                     {
                         this.props.titulaires.map((j) => (
-                            <article style={{display: 'flex',alignItems: 'center',flexDirection: 'column'}}
+
+                            <article
                                      key={j.id}
                                      className="titulaires">
-                                <Draggable onDrag={this.handleDrag} {...dragHandlers}>
-                                    <Box style={{justifyContent: 'center',
-                                        alignItems: 'center',
-                                        display: 'flex',
-                                        flexDirection: 'column'}} m={1}>
-                                        <p style={{margin:0}}>{j.nombre}</p>
+
+                                <Draggable
+
+                                    //axis="x"
+                                    //handle=".handle"
+                                    defaultPosition={{x:this.state.deltaPosition['x'+j.id],y:this.state.deltaPosition['y'+j.id]}}
+                                    position={{x:this.state.deltaPosition['x'+j.id],y:this.state.deltaPosition['y'+j.id]}}
+                                    grid={[20, 20]}
+                                    scale={1}
+                                    onDrag={(e,ui)=>this.handleDrag(e,ui,j.id)} >
+                                    <Box  m={1}>
+                                        <p style={{color:'red'}}> fkefkfl{j.nombre}  </p>
+
                                         <Badge
                                             overlap="circle"
                                             anchorOrigin={{vertical: 'bottom', horizontal: 'right',}}
                                             badgeContent={
                                                 <HighlightOffIcon
-                                                    onClick={()=>{this.props.removeTitulair(j)}}
+                                                    onClick={()=>
+                                                        this.props.removeTitulair(j)}
                                                     style={{color:'red'}}
                                                 />
                                             }>
@@ -91,4 +113,4 @@ const mapDispatchToProps = dispatch => ({
     }
 });
 
-export  default connect(mapStateToProps,mapDispatchToProps)(Titulares);
+export default connect(mapStateToProps,mapDispatchToProps)(Titulares);

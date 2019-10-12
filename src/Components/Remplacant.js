@@ -2,17 +2,15 @@ import React from 'react';
 import {connect} from "react-redux";
 import {SUPRIMER_SUPLENT} from "../stores/actions";
 
-class Suplentes extends React.Component  {
-    constructor(props){
-        super(props)
-    }
+class Remplacant extends React.Component  {
+
     render() {
         return(
             <section>
                 <h2>Suppléant</h2>
                 <div className="cancha">
                     {
-                        this.props.suplentes.map(j => (
+                        this.props.remplacants.map(j => (
                             <article key={j.id} className="titurales">
                                 <div>
                                     <img  style={{height:100,width:100}} src={j.foto} alt={j.nombre}/>
@@ -28,7 +26,7 @@ class Suplentes extends React.Component  {
     }
 }
 const mapStateToProps = state => ({
-    suplentes: state.suplentes
+    remplacants: state.remplacants
 })
 const mapDispatchToProps = dispatch => ({
     quitarSuplente(joueur){
@@ -39,4 +37,4 @@ const mapDispatchToProps = dispatch => ({
     }
 });
 
-export  default connect(mapStateToProps,mapDispatchToProps)(Suplentes);
+export  default connect(mapStateToProps,mapDispatchToProps)(Remplacant);

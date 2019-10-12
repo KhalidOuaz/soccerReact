@@ -1,18 +1,20 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {AJOUTER_SUPLENT, AJOUTER_TITULAIR} from "../stores/actions";
-import AddJugadores from "./AddJugadores";
+import AjouterJoueur from "./AjouterJoueur";
+import AjouterEquipe from "./AjouterEquipe";
 
-class Jugadores extends React.Component  {
-    constructor(props){
-        super(props)
-    }
+class Joueurs extends React.Component  {
     render() {
         return(
             <section>
-                <AddJugadores/>
+                <AjouterEquipe/>
+                <AjouterJoueur/>
+
+
+
                 <h2>Joueurs</h2>
-                {console.log('thisprops->Jugadores ',this.props)}
+                {console.log('thisprops->Joueurs ',this.props)}
                 <div style={{    flexDirection: 'row', display: 'flex'}}
                      className="contenedor-jugadores">
                     {
@@ -50,4 +52,4 @@ const mapDispatchToProps = dispatch => ({
     }
 });
 
-export  default connect(mapStateToProps,mapDispatchToProps)(Jugadores);
+export  default connect(mapStateToProps,mapDispatchToProps)(Joueurs);

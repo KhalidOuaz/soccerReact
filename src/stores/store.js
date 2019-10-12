@@ -1,5 +1,5 @@
 import { createStore} from "redux"
-import {AJOUTER_TITULAIR,AJOUTER_SUPLENT,SUPRIMER_TITULAIR,SUPRIMER_SUPLENT} from './actions';
+import {AJOUTER_JOUEUR,AJOUTER_TITULAIR,AJOUTER_SUPLENT,SUPRIMER_TITULAIR,SUPRIMER_SUPLENT} from './actions';
 
 
 const devtools = (process.browser && window.__REDUX_DEVTOOLS_EXTENSION__)
@@ -26,11 +26,16 @@ const initialState = {
         },
         ],
     titulaires: [],
-    suplentes: []
+    remplacants: []
 }
 
 const reducerEntrenador = (state = initialState, action) => {
     switch (action.type) {
+        case AJOUTER_JOUEUR:
+            return {
+                ...state,
+                joueurs: state.joueurs.concat(action.payload)
+            };
         case AJOUTER_TITULAIR:
             //console.log('>>>>',state.jugadores[0].id);
             //console.log('****',action.jugador.id);
@@ -44,7 +49,7 @@ const reducerEntrenador = (state = initialState, action) => {
             //console.log('****',action.jugador.id);
             return {
                 ...state,
-                suplentes: state.suplentes.concat(action.joueurs),
+                remplacants: state.remplacants.concat(action.joueurs),
                 joueurs: state.joueurs.filter(j => j.id !== action.joueurs.id)
             };
         case SUPRIMER_TITULAIR:
@@ -60,7 +65,7 @@ const reducerEntrenador = (state = initialState, action) => {
             //console.log('****',action.jugador.id);
             return {
                 ...state,
-                suplentes: state.suplentes.filter(j => j.id !== action.joueur.id),
+                remplacants: state.remplacants.filter(j => j.id !== action.joueur.id),
                 joueurs: state.joueurs.concat(action.joueur)
 
             };
